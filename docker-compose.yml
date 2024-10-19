@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   webserver:
+    image: nginx:stable-alpine
     restart: always
     container_name: webserver
     ports:
