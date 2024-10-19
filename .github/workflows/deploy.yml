@@ -10,4 +10,4 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: docker start
-        run: docker-compose up -d
+        run: docker compose up -d
