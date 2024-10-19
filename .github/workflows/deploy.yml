@@ -6,6 +6,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    context: .
     steps:
       - name: Get code
         uses: actions/checkout@v3
