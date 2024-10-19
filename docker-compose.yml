@@ -13,6 +13,9 @@ services:
       - db_net
     depends_on:
       - frontend
+    build:
+      context: .
+
 
   backend:
     restart: always
