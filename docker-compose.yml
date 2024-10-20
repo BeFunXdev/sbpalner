@@ -50,7 +50,7 @@ services:
   frontend:
     restart: always
     container_name: frontend
-    command: sh -c "yarn install && chmod -R 777 . && yarn dev"
+    command: sh -c "yarn install && chown sbroot:sbroot && chmod -R 777 . && yarn dev"
     build:
       context: ./frontend
       dockerfile: Dockerfile
