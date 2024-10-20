@@ -7,7 +7,9 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
+      - name: docker stop
+        run: docker compose down
       - name: Get code
         uses: actions/checkout@v4
       - name: docker start
-        run: docker compose up -d
+        run: docker compose up --build -d
