@@ -11,6 +11,6 @@ RUN yarn build
 
 EXPOSE 3000
 
-RUN chown -R sbroot:sbroot . && chmod -R 777 .
+RUN chmod -R 777 .
 
 CMD ["yarn", "start"]

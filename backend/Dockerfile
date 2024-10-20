@@ -11,7 +11,7 @@ RUN npx prisma generate
 
 RUN yarn build
 
-RUN chown -R sbroot:sbroot . && chmod -R 777 .
+RUN chmod -R 777 .
 
 EXPOSE 8000
 
