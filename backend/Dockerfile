@@ -1,11 +1,13 @@
 FROM node:22-alpine
+RUN mkdir /app && chown node:node /app
 WORKDIR /app
 
-COPY package.json .
+USER node
+COPY --chown=node:node package.json package-lock.json* ./
 
 RUN yarn
 
-COPY . .
+COPY --chown=node:node . .
 
 RUN npx prisma generate
 
