@@ -20,6 +20,9 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
     command: sh -c "yarn install && npx prisma db push && yarn start:dev"
     volumes:
       - ./backend:/app
@@ -53,6 +56,9 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
     volumes:
       - ./frontend:/app
     ports:
