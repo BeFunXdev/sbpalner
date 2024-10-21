@@ -1,10 +1,14 @@
 FROM node:22-alpine
 
-ENV HOME=/home/app-user
-RUN useradd -m -d $HOME -s /bin/bash app-user
-RUN chown -R app-user:app-user $HOME
-USER app-user
-WORKDIR $HOME/app
+RUN "apk add —no-cache shadow"
+ARG UID=1000
+ARG GID=1000
+ENV UID=${UID}
+ENV GID=${GID}
+RUN usermod -u $UID node \
+  && groupmod -g $GID node
+
+WORKDIR /app
 
 RUN yarn
 
