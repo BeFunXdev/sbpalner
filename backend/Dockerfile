@@ -1,19 +1,18 @@
 FROM node:22-alpine
-RUN mkdir /app && chown node:node /app
-WORKDIR /app
 
-USER node
-COPY --chown=node:node package.json package-lock.json* ./
+ENV HOME=/home/app-user
+RUN useradd -m -d $HOME -s /bin/bash app-user
+RUN chown -R app-user:app-user $HOME
+USER app-user
+WORKDIR $HOME/app
 
 RUN yarn
 
-COPY --chown=node:node . .
+COPY . .
 
 RUN npx prisma generate
 
 RUN yarn build
-
-RUN chmod -R 777 .
 
 EXPOSE 8000
 
