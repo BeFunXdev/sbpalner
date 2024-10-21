@@ -20,7 +20,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: sh -c "yarn install && npx prisma db push && chown -R sbroot:sbroot . && chmod -R 777 . && yarn start:dev"
+    command: sh -c "yarn install && npx prisma db push && yarn start:dev"
     volumes:
       - ./backend:/app
     ports:
@@ -49,7 +49,7 @@ services:
   frontend:
     restart: always
     container_name: frontend
-    command: sh -c "yarn install && chown -R sbroot:sbroot . && chmod -R 777 . && yarn dev"
+    command: sh -c "yarn install && yarn dev"
     build:
       context: ./frontend
       dockerfile: Dockerfile
