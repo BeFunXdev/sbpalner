@@ -1,6 +1,5 @@
 FROM node:22-alpine
 
-RUN "apk add —no-cache shadow"
 ARG UID=1000
 ARG GID=1000
 ENV UID=${UID}
