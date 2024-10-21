@@ -20,6 +20,9 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
     command: sh -c "yarn install && npx prisma db push && chown -R sbroot:sbroot . && chmod -R 777 . && yarn start:dev"
     volumes:
       - ./backend:/app
@@ -53,6 +56,9 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
     volumes:
       - ./frontend:/app
     ports:
