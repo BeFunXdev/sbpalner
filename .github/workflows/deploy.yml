@@ -10,4 +10,4 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: docker start
-        run: docker compose up --build -d
+        run: docker compose up --build -d --user 1000:1002
