@@ -21,6 +21,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     command: sh -c "yarn install && npx prisma db push && yarn start:dev"
+    user: "1000:1002"
     volumes:
       - ./backend:/app
     ports:
@@ -50,6 +51,7 @@ services:
     restart: always
     container_name: frontend
     command: sh -c "yarn install && yarn dev"
+    user: "1000:1002"
     build:
       context: ./frontend
       dockerfile: Dockerfile
