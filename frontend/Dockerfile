@@ -10,6 +10,8 @@ COPY . .
 
 RUN yarn build
 
+RUN chown 1000:1002 .
+
 EXPOSE 3000
 
 CMD ["yarn", "start"]
