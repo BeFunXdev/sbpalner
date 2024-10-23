@@ -54,9 +54,9 @@ export class AuthService {
             httpOnly: true,
             domain: '213.171.30.54',
             expires: expiresIn,
-            secure: true,
+            secure: false,
             //lax if production
-            sameSite: 'none'
+            sameSite: 'lax'
         })
     }
 
@@ -65,9 +65,9 @@ export class AuthService {
             httpOnly: true,
             domain: '213.171.30.54',
             expires: new Date(0),
-            secure: true,
+            secure: false,
             //lax if production
-            sameSite: 'none'
+            sameSite: 'lax'
         })
     }
 
